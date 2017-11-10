@@ -1,0 +1,12 @@
+.json {
+    text-align: center;
+}
+body {
+    margin: 60px
+}
+.name {
+    width: 380px;
+}
+.value {
+    width: 70px;
+}

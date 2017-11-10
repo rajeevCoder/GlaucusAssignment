@@ -1,0 +1,51 @@
+<form [formGroup]="form" >
+
+  <body>
+    <h1 class="json">Json Data </h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Order Status</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+
+          <td>{{ post.idtableClientSystemConfigId }}</td>
+          <td *ngIf="post.idtableClientSystemConfigId === editRowId">
+            
+            <input type="text" 
+            [(ngModel)]="post.tableClientSystemConfigConfigName"
+             name="post.tableClientSystemConfigConfigName" class="name" formControlName="name">
+          
+            </td>
+          
+            <td 
+          *ngIf="post.idtableClientSystemConfigId !== editRowId" 
+          (click)="toggle(post.idtableClientSystemConfigId)">
+            {{ post.tableClientSystemConfigConfigName }}
+            </td>
+          
+          <td 
+          *ngIf="post.idtableClientSystemConfigId === editRowId">
+            <input type="text" 
+            [(ngModel)]="post.tableClientSystemConfigValue" 
+            name="id" class="value" formControlName="id" >
+          </td>
+
+          <td 
+          *ngIf="post.idtableClientSystemConfigId !== editRowId" 
+          (click)="toggle(post.idtableClientSystemConfigId)">
+           
+          {{ post.tableClientSystemConfigValue }}
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="update(post)"> Update</button>
+          </td>
+        </tr>
+    </table>
+  </body>
+</form>
